@@ -1,0 +1,17 @@
+.icon {
+  padding: 0 14px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.flag {
+  width: 50px;
+  padding: 10px;
+  margin: 0 25px;
+
+  & img {
+    width: 35px;
+  }
+}

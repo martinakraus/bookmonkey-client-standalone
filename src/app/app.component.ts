@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: [ './app.component.scss' ],
 })
 export class AppComponent {
-  title = 'pokedex-tm';
+  private readonly darkModeClassName = 'darkMode';
+  @HostBinding('class') private className = '';
+
+  changeTheme(isInDarkMode: boolean) {
+    this.className = isInDarkMode ? this.darkModeClassName : '';
+  }
 }

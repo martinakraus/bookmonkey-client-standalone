@@ -1,0 +1,10 @@
+{
+  "APP_TITLE": "Meow Meow Pokedex",
+  "CREATE": {
+    "TITLE": "Get Information",
+    "SUBTITLE": "Scan your Pokemon",
+    "ANALYZE": "Show Info",
+    "TURN_OFF": "Stop scanning",
+    "TURN_ON": "Start scanning"
+  }
+}

@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>{{ 'APP_TITLE' | translate }}</span>
+        <span class="spacer"></span>
+        <mat-slide-toggle [formControl]="toggleControl" class="mr-8">
+        </mat-slide-toggle>
+        <mat-icon>bedtime</mat-icon>
+        <button class="flag"
+                mat-menu-item [matMenuTriggerFor]="languageMenu">
+            <img alt="country flag"
+                 [src]="'/assets/flags/' + this.languageInUse + '.svg'">
+        </button>
+        <mat-menu #languageMenu="matMenu">
+            <button mat-menu-item *ngFor="let language of languages"
+                    (click)="changeLanguage(language)"><img width="30px" alt="country flag"
+                                                            [src]="'/assets/flags/' + language + '.svg'">
+            </button>
+        </mat-menu>
+        <app-login></app-login>
+    </mat-toolbar-row>
+</mat-toolbar>
