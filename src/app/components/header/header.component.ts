@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   toggleControl: FormControl<boolean>;
   @Output() changeTheme = new EventEmitter<boolean>();
   languages = [ 'de', 'en' ];
-  languageInUse: string = '';
+  languageInUse: string = this.translate.getBrowserLang() ?? this.translate.getDefaultLang();
   user$: Observable<any> = this.auth.user$;
 
   private isInDarkMode: boolean = this.localStorageService.get<boolean>(DARK_MODE_SETTING) ?? false;
