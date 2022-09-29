@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { BASE, CREATE, FEED } from './constants/routes.const';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { BASE, BOOKS, FEED } from './constants/routes.const';
 import { FeedComponent } from './components/feed/feed.component';
-import { CreateComponent } from './components/create/create.component';
 
 const APP_ROUTES: Routes = [
   {
@@ -15,13 +14,14 @@ const APP_ROUTES: Routes = [
     component: FeedComponent,
   },
   {
-    path: CREATE,
-    component: CreateComponent,
+    path: BOOKS,
+    loadChildren: () => import('./features/book/book.module')
+    .then(m => m.BookModule)
   },
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(APP_ROUTES) ],
+  imports: [ RouterModule.forRoot(APP_ROUTES, { preloadingStrategy: PreloadAllModules }) ],
   exports: [ RouterModule ],
 })
 export class AppRoutingModule {

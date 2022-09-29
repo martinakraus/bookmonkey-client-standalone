@@ -11,7 +11,6 @@ import { AuthModule } from '@auth0/auth0-angular';
 import { LoginComponent } from './components/login/login.component';
 import { ProfileCardComponent } from './components/login/profile-card/profile-card.component';
 import { FeedComponent } from './components/feed/feed.component';
-import { CreateComponent } from './components/create/create.component';
 import { WebcamModule } from 'ngx-webcam';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -27,7 +26,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent,
     ProfileCardComponent,
     FeedComponent,
-    CreateComponent,
     HeaderComponent,
   ],
   imports: [

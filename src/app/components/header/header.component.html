@@ -1,21 +1,37 @@
 <mat-toolbar color="primary">
-    <mat-toolbar-row>
-        <span>{{ 'APP_TITLE' | translate }}</span>
-        <span class="spacer"></span>
-        <mat-slide-toggle [formControl]="toggleControl" class="mr-8">
-        </mat-slide-toggle>
-        <mat-icon>bedtime</mat-icon>
-        <button class="flag"
-                mat-menu-item [matMenuTriggerFor]="languageMenu">
-            <img alt="country flag"
-                 [src]="'/assets/flags/' + this.languageInUse + '.svg'">
-        </button>
-        <mat-menu #languageMenu="matMenu">
-            <button mat-menu-item *ngFor="let language of languages"
-                    (click)="changeLanguage(language)"><img width="30px" alt="country flag"
-                                                            [src]="'/assets/flags/' + language + '.svg'">
-            </button>
-        </mat-menu>
-        <app-login></app-login>
-    </mat-toolbar-row>
+  <mat-toolbar-row>
+    <button class="book-menu" mat-menu-item [matMenuTriggerFor]="bookMenu">
+      Book
+    </button>
+    <mat-menu #bookMenu="matMenu">
+      <button routerLink="/books" mat-menu-item>Bücher anzeigen</button>
+      <button routerLink="/books/new" mat-menu-item>Neues Buch anlegen</button>
+    </mat-menu>
+    <span class="spacer"></span>
+    <span routerLink="/">{{ "APP_TITLE" | translate }}</span>
+    <span class="spacer"></span>
+    <mat-slide-toggle [formControl]="toggleControl" class="mr-8">
+    </mat-slide-toggle>
+    <mat-icon>bedtime</mat-icon>
+    <button class="flag" mat-menu-item [matMenuTriggerFor]="languageMenu">
+      <img
+        alt="country flag"
+        [src]="'/assets/flags/' + this.languageInUse + '.svg'"
+      />
+    </button>
+    <mat-menu #languageMenu="matMenu">
+      <button
+        mat-menu-item
+        *ngFor="let language of languages"
+        (click)="changeLanguage(language)"
+      >
+        <img
+          width="30px"
+          alt="country flag"
+          [src]="'/assets/flags/' + language + '.svg'"
+        />
+      </button>
+    </mat-menu>
+    <app-login></app-login>
+  </mat-toolbar-row>
 </mat-toolbar>

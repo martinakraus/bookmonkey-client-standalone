@@ -1,10 +1,4 @@
 {
-  "APP_TITLE": "Demo Template",
-  "CREATE": {
-    "TITLE": "Get Information",
-    "SUBTITLE": "Scan your Pokemon",
-    "ANALYZE": "Show Info",
-    "TURN_OFF": "Stop scanning",
-    "TURN_ON": "Start scanning"
-  }
+  "APP_TITLE": "Bookmonkey-Client",
+  "BACK": "Back"
 }

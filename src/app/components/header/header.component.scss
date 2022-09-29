@@ -1,9 +1,23 @@
+mat-toolbar {
+  height: 64px;
+  position: fixed;
+  z-index: 100;
+  width: 100%  !important;
+}
+
 .icon {
   padding: 0 14px;
 }
 
 .spacer {
   flex: 1 1 auto;
+}
+
+.book-menu {
+  width: 250px;
+  padding: 10px;
+  margin: 0 25px;
+  font-size: x-large;
 }
 
 .flag {
