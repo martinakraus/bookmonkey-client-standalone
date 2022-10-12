@@ -1,11 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 
 @Component({
-  selector: 'app-feed',
-  standalone: true,
-  templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.scss']
+    selector: 'app-feed',
+    templateUrl: './feed.component.html',
+    styleUrls: [ './feed.component.scss' ],
 })
 export class FeedComponent {
 
 }
+
+@NgModule({
+    declarations: [ FeedComponent ],
+    exports: [ FeedComponent ],
+})
+export class FeedComponentModule {
+
+}
+
