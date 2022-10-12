@@ -3,7 +3,7 @@ import { AbstractControl, FormBuilder, ReactiveFormsModule, Validators } from '@
 import { Router } from '@angular/router';
 import { Book } from '../models/book';
 import { BookApiService } from '../services/book-api.service';
-import { CommonModule, NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-book-new',

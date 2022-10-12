@@ -1,8 +1,5 @@
 import { NgModule, Pipe, PipeTransform } from '@angular/core';
 import { Gender } from '../models/types';
-import { BookCardComponentModule } from '../book-card/book-card.component';
-import { CommonModule } from '@angular/common';
-import { BookComponent } from '../book/book.component';
 
 @Pipe({
   name: 'prefix'

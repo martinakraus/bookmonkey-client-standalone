@@ -4,7 +4,6 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Subject, takeUntil, tap } from 'rxjs';
 import { DARK_MODE_SETTING } from '../../constants/local-storage-keys.const';
 import { LocalStorageService } from '../../services/local-storage.service';
-import { FeedComponent } from '../feed/feed.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';

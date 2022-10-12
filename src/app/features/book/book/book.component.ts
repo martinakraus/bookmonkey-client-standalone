@@ -1,4 +1,4 @@
-import { Component, NgModule, OnDestroy, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { Book } from '../models/book';
 import { BookApiService } from '../services/book-api.service';
 import { Observable, Subscription } from 'rxjs';

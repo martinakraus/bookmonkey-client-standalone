@@ -7,11 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './app-material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FeedComponent, FeedComponentModule } from './components/feed/feed.component';
-import { WebcamModule } from 'ngx-webcam';
+import { FeedComponentModule } from './components/feed/feed.component';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HeaderComponent, HeaderComponentModule } from './components/header/header.component';
+import { HeaderComponentModule } from './components/header/header.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
