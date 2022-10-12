@@ -4,22 +4,23 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root',
 })
 export class BookApiService {
-  private readonly API_URL = 'http://localhost:4730'
-  constructor(private readonly http: HttpClient) {
-  }
+    private readonly API_URL = 'http://localhost:4730'
 
-  create(book: Partial<Book>): Observable<Book> {
-    return this.http.post<Book>(`${this.API_URL}/books/`, book);
-  }
+    constructor(private readonly http: HttpClient) {
+    }
 
-  getAll(): Observable<Book[]> {
-    return this.http.get<Book[]>(`${this.API_URL}/books`);
-  }
+    create(book: Partial<Book>): Observable<Book> {
+        return this.http.post<Book>(`${ this.API_URL }/books/`, book);
+    }
 
-  getByIsbn(isbn: string): Observable<Book> {
-    return this.http.get<Book>(`${this.API_URL}/books/${isbn}`);
-  }
+    getAll(): Observable<Book[]> {
+        return this.http.get<Book[]>(`${ this.API_URL }/books`);
+    }
+
+    getByIsbn(isbn: string): Observable<Book> {
+        return this.http.get<Book>(`${ this.API_URL }/books/${ isbn }`);
+    }
 }
