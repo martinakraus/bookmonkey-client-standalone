@@ -1,17 +1,22 @@
 import { Component, HostBinding } from '@angular/core';
-import { HeaderComponentModule } from './components/header/header.component';
+import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './components/header/header.component';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: [ './app.component.scss' ],
+    selector: 'app-root',
+    standalone: true,
+    templateUrl: './app.component.html',
+    imports: [
+        RouterOutlet,
+        HeaderComponent,
+    ],
+    styleUrls: [ './app.component.scss' ],
 })
 export class AppComponent {
-  private readonly darkModeClassName = 'darkMode';
-  @HostBinding('class') private className = '';
+    private readonly darkModeClassName = 'darkMode';
+    @HostBinding('class') private className = '';
 
-  changeTheme(isInDarkMode: boolean) {
-    this.className = isInDarkMode ? this.darkModeClassName : '';
-  }
+    changeTheme(isInDarkMode: boolean) {
+        this.className = isInDarkMode ? this.darkModeClassName : '';
+    }
 }
-feed.component.ts

@@ -1,11 +1,9 @@
-import { NgModule, Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 import { Gender } from '../models/types';
-import { BookCardComponentModule } from '../book-card/book-card.component';
-import { CommonModule } from '@angular/common';
-import { BookComponent } from '../book/book.component';
 
 @Pipe({
-  name: 'prefix'
+  name: 'prefix',
+  standalone: true
 })
 export class PrefixPipe implements PipeTransform {
 
@@ -19,11 +17,4 @@ export class PrefixPipe implements PipeTransform {
         return author;
     }
   }
-}
-@NgModule({
-  declarations: [PrefixPipe],
-  exports: [PrefixPipe]
-})
-export class PrefixPipeModule {
-
 }

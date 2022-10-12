@@ -1,12 +1,39 @@
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { enableProdMode, importProvidersFrom } from '@angular/core';
 
-import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { AppComponent } from './app/app.component';
+import { RouterModule } from '@angular/router';
+import { APP_ROUTES } from './app/routes';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-if (environment.production) {
-  enableProdMode();
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+if ( environment.production ) {
+    enableProdMode();
+}
+
+bootstrapApplication(AppComponent, {
+    providers: [
+        importProvidersFrom(RouterModule.forRoot(APP_ROUTES)),
+        importProvidersFrom(TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [ HttpClient ],
+            },
+            defaultLanguage: 'en',
+        })),
+        importProvidersFrom(HttpClientModule),
+        {
+            provide: Window,
+            useValue: window,
+        },
+        importProvidersFrom(BrowserAnimationsModule),
+    ],
+})
