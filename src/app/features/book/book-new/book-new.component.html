@@ -1,0 +1,41 @@
+<h2>New</h2>
+
+<form [formGroup]="newForm" (ngSubmit)="create()">
+    <label class="form-field">
+        <span>ISBN</span>
+        <input formControlName="isbn" type="text" />
+        <small  class="form-field-hint"
+                *ngIf="
+                isbn.dirty &&
+                isbn.hasError('required')">
+            Please insert an ISBN.
+        </small>
+    </label>
+
+    <label class="form-field">
+        <span>Title</span>
+        <input formControlName="title" type="text" />
+        <small  class="form-field-hint"
+                *ngIf="
+                title.dirty &&
+                title.hasError('required')">
+        Please insert a title.
+        </small>
+
+    </label>
+
+    <label class="form-field">
+        <span>Author</span>
+        <input formControlName="author" type="text" />
+    </label>
+
+    <label class="form-field">
+        <span>Abstract</span>
+        <input formControlName="abstract" type="text" />
+    </label>
+
+    <div class="form-actions">
+        <button [disabled]="newForm.invalid" type="submit">Save</button>
+    </div>
+</form>
+

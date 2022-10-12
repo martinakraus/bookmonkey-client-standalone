@@ -1,0 +1,7 @@
+<h3>{{ content.title }}</h3>
+<h4>{{ content.author | prefix:content.gender }}</h4>
+<h4>{{ content.publishDate | date:'short' }}</h4>
+<button mat-raised-button color="primary" (click)="handleDetailClick()">Details</button>
+<p>
+    {{ content.abstract }}
+</p>
