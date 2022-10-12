@@ -7,12 +7,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppMaterialModule } from './app-material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { AuthModule } from '@auth0/auth0-angular';
-import { FeedComponent } from './components/feed/feed.component';
+import { FeedComponent, FeedComponentModule } from './components/feed/feed.component';
 import { WebcamModule } from 'ngx-webcam';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HeaderComponent } from './components/header/header.component';
+import { HeaderComponent, HeaderComponentModule } from './components/header/header.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -20,9 +19,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FeedComponent,
-    HeaderComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +28,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppMaterialModule,
     ReactiveFormsModule,
     HttpClientModule,
-    WebcamModule,
+    FeedComponentModule,
+    HeaderComponentModule,
     TranslateModule.forRoot({
         loader: {
           provide: TranslateLoader,

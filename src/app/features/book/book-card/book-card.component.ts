@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, NgModule, Output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { SharedModule } from 'src/app/shared.module';
 import { Book } from '../models/book';
+import { PrefixPipeModule } from '../pipes/prefix.pipe';
 
 @Component({
   selector: 'app-book-card',
@@ -18,8 +18,11 @@ export class BookCardComponent {
   }
 }
 @NgModule({
-  declarations: [BookCardComponent],
-  imports: [SharedModule, CommonModule, MatButtonModule],
+    declarations: [ BookCardComponent ],
+    imports: [ CommonModule, MatButtonModule, PrefixPipeModule ],
+    exports: [
+        BookCardComponent,
+    ],
 })
 export class BookCardComponentModule {
 

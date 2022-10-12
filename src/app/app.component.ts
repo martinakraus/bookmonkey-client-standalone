@@ -1,4 +1,5 @@
 import { Component, HostBinding } from '@angular/core';
+import { HeaderComponentModule } from './components/header/header.component';
 
 @Component({
   selector: 'app-root',
@@ -13,3 +14,4 @@ export class AppComponent {
     this.className = isInDarkMode ? this.darkModeClassName : '';
   }
 }
+feed.component.ts
