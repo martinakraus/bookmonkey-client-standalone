@@ -1,8 +1,0 @@
-<ng-container *ngIf="user$ | async as user; else loginIcon">
-    <app-profile-card [user]="user" (logoutClick)="logout()"></app-profile-card>
-</ng-container>
-<ng-template #loginIcon>
-    <button mat-raised-button color="accent" (click)="login()">
-        <mat-icon>login</mat-icon>
-    </button>
-</ng-template>
