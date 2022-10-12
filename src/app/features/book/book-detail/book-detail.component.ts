@@ -1,5 +1,5 @@
 import { Component, NgModule, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { BookApiService } from '../services/book-api.service';
 import { Book } from '../models/book';
 import { Observable, switchMap } from 'rxjs';
@@ -29,7 +29,7 @@ export class BookDetailComponent implements OnInit {
 
 @NgModule({
   declarations: [BookDetailComponent],
-  imports: [TranslateModule, CommonModule, MatButtonModule],
+  imports: [ TranslateModule, CommonModule, MatButtonModule, RouterLink ],
 })
 export class BookDetailComponentModule {
 

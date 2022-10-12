@@ -1,9 +1,16 @@
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { TranslateService } from '@ngx-translate/core';
+import { Component, EventEmitter, NgModule, OnDestroy, OnInit, Output } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { Subject, takeUntil, tap } from 'rxjs';
 import { DARK_MODE_SETTING } from '../../constants/local-storage-keys.const';
 import { LocalStorageService } from '../../services/local-storage.service';
+import { FeedComponent } from '../feed/feed.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { NgForOf } from '@angular/common';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -43,4 +50,21 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.destroy$.next();
   }
+}
+@NgModule({
+  declarations: [ HeaderComponent ],
+  imports: [
+    MatMenuModule,
+    ReactiveFormsModule,
+    MatIconModule,
+    MatSlideToggleModule,
+    NgForOf,
+    TranslateModule,
+    MatToolbarModule,
+    RouterLink,
+  ],
+  exports: [ HeaderComponent ],
+})
+export class HeaderComponentModule {
+
 }

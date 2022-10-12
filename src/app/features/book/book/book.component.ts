@@ -3,6 +3,8 @@ import { Book } from '../models/book';
 import { BookApiService } from '../services/book-api.service';
 import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { BookCardComponentModule } from '../book-card/book-card.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-book',
@@ -27,8 +29,8 @@ export class BookComponent implements OnInit {
 }
 @NgModule({
   declarations: [BookComponent],
-  imports: [],
+  imports: [BookCardComponentModule, CommonModule],
 })
-export class BBookComponentModule {
+export class BookComponentModule {
 
 }
