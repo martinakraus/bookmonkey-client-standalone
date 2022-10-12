@@ -13,37 +13,39 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HeaderComponentModule } from './components/header/header.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
+    return new TranslateHttpLoader(http);
 }
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    AppMaterialModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    FeedComponentModule,
-    HeaderComponentModule,
-    TranslateModule.forRoot({
-        loader: {
-          provide: TranslateLoader,
-          useFactory: HttpLoaderFactory,
-          deps: [ HttpClient ],
+    declarations: [
+        AppComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        AppMaterialModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        FeedComponentModule,
+        HeaderComponentModule,
+        TranslateModule.forRoot({
+                loader: {
+                    provide: TranslateLoader,
+                    useFactory: HttpLoaderFactory,
+                    deps: [ HttpClient ],
+                },
+                defaultLanguage: 'en',
+            },
+        ),
+    ],
+    providers: [
+        {
+            provide: Window,
+            useValue: window,
         },
-        defaultLanguage: 'en',
-      },
-    )
-  ],
-  providers: [ {
-    provide: Window,
-    useValue: window,
-  } ],
-  bootstrap: [ AppComponent ],
+    ],
+    bootstrap: [ AppComponent ],
 })
 export class AppModule {
 }

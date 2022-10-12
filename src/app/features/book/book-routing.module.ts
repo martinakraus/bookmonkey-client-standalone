@@ -5,22 +5,23 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
 import { BookNewComponent } from './book-new/book-new.component';
 
 const BOOK_ROUTES: Routes = [
-  {
-    path: '',
-    component: BookComponent,
-  },
-  {
-    path: 'new',
-    component: BookNewComponent,
-  },
-  {
-    path: ':isbn',
-    component: BookDetailComponent,
-  } ]
+    {
+        path: '',
+        component: BookComponent,
+    },
+    {
+        path: 'new',
+        component: BookNewComponent,
+    },
+    {
+        path: ':isbn',
+        component: BookDetailComponent,
+    },
+]
 
 @NgModule({
-  imports: [ RouterModule.forChild(BOOK_ROUTES) ],
-  exports: [ RouterModule ],
+    imports: [ RouterModule.forChild(BOOK_ROUTES) ],
+    exports: [ RouterModule ],
 })
 export class BookRoutingModule {
 }

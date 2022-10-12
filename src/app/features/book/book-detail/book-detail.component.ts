@@ -8,27 +8,28 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-  selector: 'app-book-detail',
-  templateUrl: './book-detail.component.html',
-  styleUrls: [ './book-detail.component.scss' ],
+    selector: 'app-book-detail',
+    templateUrl: './book-detail.component.html',
+    styleUrls: [ './book-detail.component.scss' ],
 })
 export class BookDetailComponent implements OnInit {
-  book$!: Observable<Book>;
-  constructor(private readonly route: ActivatedRoute,
-              private readonly bookApiService: BookApiService) {
-  }
+    book$!: Observable<Book>;
 
-  ngOnInit(): void {
-    this.book$ = this.route.params.pipe(
-      switchMap((params) => this.bookApiService.getByIsbn(params['isbn']))
-    );
-  }
+    constructor(private readonly route: ActivatedRoute,
+                private readonly bookApiService: BookApiService) {
+    }
+
+    ngOnInit(): void {
+        this.book$ = this.route.params.pipe(
+            switchMap((params) => this.bookApiService.getByIsbn(params[ 'isbn' ])),
+        );
+    }
 
 }
 
 @NgModule({
-  declarations: [BookDetailComponent],
-  imports: [ TranslateModule, CommonModule, MatButtonModule, RouterLink ],
+    declarations: [ BookDetailComponent ],
+    imports: [ TranslateModule, CommonModule, MatButtonModule, RouterLink ],
 })
 export class BookDetailComponentModule {
 

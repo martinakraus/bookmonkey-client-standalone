@@ -11,17 +11,17 @@ import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
-  exports: [
-    MatToolbarModule,
-    MatIconModule,
-    MatSlideToggleModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatDividerModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatSelectModule,
-  ],
+    exports: [
+        MatToolbarModule,
+        MatIconModule,
+        MatSlideToggleModule,
+        MatButtonModule,
+        MatMenuModule,
+        MatDividerModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatSelectModule,
+    ],
 })
 export class AppMaterialModule {
 }

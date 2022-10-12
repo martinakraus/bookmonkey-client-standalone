@@ -19,7 +19,7 @@ import { TranslateModule } from '@ngx-translate/core';
         TranslateModule,
         BookDetailComponentModule,
         BookNewComponentModule,
-        BookComponentModule
+        BookComponentModule,
     ],
 })
 export class BookModule {

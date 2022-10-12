@@ -6,42 +6,43 @@ import { BookApiService } from '../services/book-api.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-book-new',
-  templateUrl: './book-new.component.html',
-  styleUrls: [ './book-new.component.scss' ],
+    selector: 'app-book-new',
+    templateUrl: './book-new.component.html',
+    styleUrls: [ './book-new.component.scss' ],
 })
 export class BookNewComponent {
-  newForm = this.buildForm();
+    newForm = this.buildForm();
 
-  constructor(private readonly form: FormBuilder, private readonly bookApiService: BookApiService, private readonly router: Router) {
-  }
+    constructor(private readonly form: FormBuilder, private readonly bookApiService: BookApiService, private readonly router: Router) {
+    }
 
-  create() {
-    const book: Partial<Book> = this.newForm.getRawValue();
+    create() {
+        const book: Partial<Book> = this.newForm.getRawValue();
 
-    this.bookApiService.create(book).subscribe(() => this.router.navigate(['/books']));
-  }
+        this.bookApiService.create(book).subscribe(() => this.router.navigate([ '/books' ]));
+    }
 
-  get title(): AbstractControl<string> {
-    return this.newForm.get('title') as AbstractControl<string>;
-  }
+    get title(): AbstractControl<string> {
+        return this.newForm.get('title') as AbstractControl<string>;
+    }
 
-  get isbn(): AbstractControl<string> {
-    return this.newForm.get('isbn') as AbstractControl<string>;
-  }
+    get isbn(): AbstractControl<string> {
+        return this.newForm.get('isbn') as AbstractControl<string>;
+    }
 
-  private buildForm() {
-    return this.form.nonNullable.group({
-      isbn: [ '', [ Validators.required ] ],
-      title: [ '', [ Validators.required ] ],
-      author: [ '' ],
-      abstract: [ '' ],
-    });
-  }
+    private buildForm() {
+        return this.form.nonNullable.group({
+            isbn: [ '', [ Validators.required ] ],
+            title: [ '', [ Validators.required ] ],
+            author: [ '' ],
+            abstract: [ '' ],
+        });
+    }
 }
+
 @NgModule({
-  declarations: [BookNewComponent],
-  imports: [ ReactiveFormsModule, CommonModule ],
+    declarations: [ BookNewComponent ],
+    imports: [ ReactiveFormsModule, CommonModule ],
 })
 export class BookNewComponentModule {
 
