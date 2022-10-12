@@ -1,10 +1,9 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { TranslateService } from '@ngx-translate/core';
+import { Subject, takeUntil, tap } from 'rxjs';
 import { DARK_MODE_SETTING } from '../../constants/local-storage-keys.const';
 import { LocalStorageService } from '../../services/local-storage.service';
-import { firstValueFrom, Observable, Subject, takeUntil, tap } from 'rxjs';
-import { TranslateService } from '@ngx-translate/core';
-import { AuthService, User } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-header',
@@ -16,14 +15,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   @Output() changeTheme = new EventEmitter<boolean>();
   languages = [ 'de', 'en' ];
   languageInUse: string = this.translate.getBrowserLang() ?? this.translate.getDefaultLang();
-  user$: Observable<any> = this.auth.user$;
 
   private isInDarkMode: boolean = this.localStorageService.get<boolean>(DARK_MODE_SETTING) ?? false;
   private destroy$ = new Subject<void>()
 
   constructor(private readonly localStorageService: LocalStorageService,
-              private readonly translate: TranslateService,
-              public readonly auth: AuthService) {
+              private readonly translate: TranslateService) {
     this.toggleControl = new FormControl<boolean>(this.isInDarkMode, { nonNullable: true });
   }
 
@@ -36,11 +33,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
     ).subscribe((darkMode) => {
       this.changeTheme.emit(darkMode);
     });
-
-    firstValueFrom(this.user$).then((user: User) => {
-      this.languageInUse = user.locale ?? this.translate.getBrowserLang() ?? this.translate.getDefaultLang();
-      this.translate.use(this.languageInUse)
-    })
   }
 
   changeLanguage(language: string) {

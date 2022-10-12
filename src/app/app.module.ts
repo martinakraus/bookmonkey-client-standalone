@@ -8,8 +8,6 @@ import { AppMaterialModule } from './app-material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AuthModule } from '@auth0/auth0-angular';
-import { LoginComponent } from './components/login/login.component';
-import { ProfileCardComponent } from './components/login/profile-card/profile-card.component';
 import { FeedComponent } from './components/feed/feed.component';
 import { WebcamModule } from 'ngx-webcam';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
@@ -23,8 +21,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    ProfileCardComponent,
     FeedComponent,
     HeaderComponent,
   ],
@@ -44,11 +40,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         },
         defaultLanguage: 'en',
       },
-    ),
-    AuthModule.forRoot({
-      domain: 'dev-codekittey.eu.auth0.com',
-      clientId: 'mgVfWdDSwcKkd3mC7O7Wn0vMNvKxcqiA',
-    }),
+    )
   ],
   providers: [ {
     provide: Window,
