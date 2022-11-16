@@ -1,6 +1,12 @@
 # Demo-Template
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+This Demo depends on a dummy Backend that need to be run first. 
+`npm i --global bookmonkey-api`
+
+[Npm Package Bookmonkey-Api](https://www.npmjs.com/package/bookmonkey-api)
+
+You'll get a full REST-Api Backend to fetch, update, create or delete Books.
+
 
 ## Development server
 
