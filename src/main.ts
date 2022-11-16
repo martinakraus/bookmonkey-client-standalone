@@ -3,10 +3,10 @@ import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { environment } from './environments/environment';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
-import { RouterModule } from '@angular/router';
+import {PreloadAllModules, provideRouter, RouterModule, withPreloading} from '@angular/router';
 import { APP_ROUTES } from './app/routes';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {HttpClient, HttpClientModule, provideHttpClient} from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -20,7 +20,7 @@ if ( environment.production ) {
 
 bootstrapApplication(AppComponent, {
     providers: [
-        importProvidersFrom(RouterModule.forRoot(APP_ROUTES)),
+        provideRouter(APP_ROUTES, withPreloading(PreloadAllModules)),
         importProvidersFrom(TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -29,7 +29,7 @@ bootstrapApplication(AppComponent, {
             },
             defaultLanguage: 'en',
         })),
-        importProvidersFrom(HttpClientModule),
+        provideHttpClient(),
         {
             provide: Window,
             useValue: window,
