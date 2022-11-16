@@ -1,6 +1,6 @@
 # Demo-Template
 
-This Demo depends on a dummy Backend that need to be run first. 
+This Demo depends on a dummy Backend that is needed to be run first. 
 `npm i --global bookmonkey-api`
 
 [Npm Package Bookmonkey-Api](https://www.npmjs.com/package/bookmonkey-api)
