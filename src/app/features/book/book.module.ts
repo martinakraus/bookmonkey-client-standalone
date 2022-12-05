@@ -6,7 +6,7 @@ import { BookDetailComponentModule } from './book-detail/book-detail.component';
 import { BookRoutingModule } from './book-routing.module';
 import { BookNewComponentModule } from './book-new/book-new.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
+import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
 import { TranslateModule } from '@ngx-translate/core';
 
 
